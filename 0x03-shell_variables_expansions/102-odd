@@ -1,2 +1,2 @@
 #!/bin/bash
-pasre -d, - - | cut -d, -fl
+pasre -d, - - | cut -d, -f1
