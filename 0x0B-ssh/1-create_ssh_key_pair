@@ -1,4 +1,3 @@
 #!/usr/bin/env bash
-# Generate an RSA key pair
 # 4096 the bits length
-ssh-keygen -b 4096 -N betty -f school
+ssh-keygen -t rsa -b 4096 -f school -P betty
