@@ -1,15 +1,17 @@
 #!/usr/bin/env bash
 # This script installs nginx on ubuntu server
 
+sudo apt-get update -y
 sudo apt-get install -y nginx
+
 sudo service nginx start
+
 sudo ufw allow 'Nginx HTTP'
 
-
-echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html
+echo "Hello World!" | sudo tee /var/www/html/index.nginx-debian.html >/dev/null
 
 line="https://www.youtube.com"
 
-sudo sed -i "/ubuntu;/ redirect_me {\n    return 301 $line;\n    }"
+sudo sed -i "/server_name _;/a \    location /redirect_me {\n        return 301 $line;\n    }" /etc/nginx/sites-available/default
 
 sudo nginx -s reload
