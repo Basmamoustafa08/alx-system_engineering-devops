@@ -7,7 +7,7 @@ sudo apt-get install nginx -y
 sudo service nginx start
 
 
-echo "Hello World!" | sudo tee /var/www/html/index.html >/dev/null
+echo "Hello World!" | sudo tee /var/www/html/index.hnginx-debian.tml >/dev/null
 
 sudo ufw allow 'Nginx HTTP'
 
