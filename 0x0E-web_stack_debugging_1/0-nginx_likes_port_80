@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 # fix a bug in NGINX configure
 
-rm /etc/nginx/sites-enabled/default
+#rm /etc/nginx/sites-enabled/default
 
-ln -s /etc/nginx/sites-available/default /etc /etc/nginx/sites-enabled/default
+sudo ln -sf /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
 
 service nginx restart
