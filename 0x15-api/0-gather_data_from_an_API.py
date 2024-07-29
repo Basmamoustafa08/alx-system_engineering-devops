@@ -5,23 +5,23 @@ api task
 import requests
 import sys
 
-if __name__ == "__main__":
+if __name__ == '__main__':
     url = "https://jsonplaceholder.typicode.com/"
-    user_id = sys.argv[1]
+    employee_id = sys.argv[1]
 
-    response_user = requests.get(f"{url}/users/{user_id}")
-    response_todos = requests.get(f"{url}/todos?userId={user_id}")
+    user_response = requests.get(f"{url}/users/{employee_id }")
+    todos_response = requests.get(f"{url}/todos?userId={employee_id}")
 
-    response_user = response_user.json()
-    response_todos = response_todos.json()
+    user_data = user_response.json()
+    todos_data = todos_response.json()
 
-    user_name = response_user.get("name")
-    tasks_name = [task.get("title") for task in response_todos if task.get("completed")]
+    name = user_data.get('name')
+    c = []
+    for task in todos_data:
+        if task.get('completed'):
+            c.append(task.get('title'))
+    tt = len(todos_data)
 
-    c_todos = len(response_todos)
-    c_done = len(tasks_name)
-
-    print(f"Employee {user_name} is done with tasks({c_done}/{c_todos}):")
-    for name in tasks_name:
-        print(f"\t{name}")
-
+    print(f"Employee {name} is done with tasks({len(ct)}/{tt}):")
+    for task in c:
+        print(f"\t {task}")
