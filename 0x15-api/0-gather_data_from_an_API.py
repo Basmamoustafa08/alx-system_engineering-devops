@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-api task
+    given employee ID, returns information about his/her TODo list progress.
 """
 import requests
 import sys
@@ -16,12 +16,12 @@ if __name__ == '__main__':
     todos_data = todos_response.json()
 
     name = user_data.get('name')
-    c = []
+    ct = []
     for task in todos_data:
         if task.get('completed'):
-            c.append(task.get('title'))
+            ct.append(task.get('title'))
     tt = len(todos_data)
 
     print(f"Employee {name} is done with tasks({len(ct)}/{tt}):")
-    for task in c:
+    for task in ct:
         print(f"\t {task}")
